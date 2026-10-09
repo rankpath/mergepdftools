@@ -1,0 +1,23 @@
+# Main address: https://mergepdftool.rank-path.com
+# The www address redirects to it, so both links work.
+
+[build]
+  publish = "."
+
+[[redirects]]
+  from = "https://www.mergepdftool.rank-path.com/*"
+  to = "https://mergepdftool.rank-path.com/:splat"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "http://www.mergepdftool.rank-path.com/*"
+  to = "https://mergepdftool.rank-path.com/:splat"
+  status = 301
+  force = true
+
+# Library files have the version in their folder name, so they can be cached for a long time
+[[headers]]
+  for = "/assets/vendor/*"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
